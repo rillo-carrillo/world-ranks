@@ -1,7 +1,7 @@
-import { StylesProvider } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import Layout from "../../component/Layout/Layout";
 import styles from './Country.module.css';
+import Link from 'next/link'
 const getCountry = async (id) => {
     const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
     const country = await res.json()
@@ -68,11 +68,14 @@ const Country = ({ country }) => {
                     <div className={styles.details_panel_borders}>
                         <div className={styles.details_panel_borders_label}>Neigthboors</div>
                         <div className={styles.details_panel_borders_container}>
-                            {borders.map(({ flag, name }) => (
-                                <div key={name} className={styles.details_panel_borders_country}>
-                                    <img src={flag} alt={name} />
-                                    <div className={styles.details_panel_borders_name}>{name}</div>
-                                </div>
+                            {borders.map(({ flag, name,alpha3Code }) => (
+                                <Link key={name} href={`/country/${alpha3Code}`}>
+                                    <div className={styles.details_panel_borders_country}>
+                                        <img src={flag} alt={name} />
+                                        <div className={styles.details_panel_borders_name}>{name}</div>
+                                    </div>
+                                </Link>
+
                             ))}
                         </div>
 
