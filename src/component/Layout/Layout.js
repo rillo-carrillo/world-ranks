@@ -47,7 +47,7 @@ const Layout = ({ children , title = "World Ranks"}) => {
             </main>
 
             <footer className={styles.footer}>
-                Angel Carrillo @ devchallenges.io
+                Angel Carrillo @ rillo.carrillo
       </footer>
         </div>
     )

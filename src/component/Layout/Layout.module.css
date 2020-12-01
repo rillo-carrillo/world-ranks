@@ -15,6 +15,9 @@ margin:0 auto;
 }
 
 .footer {
+  padding: 20px;
+  margin-top:20px;
+  margin-bottom: 24px;
   text-align: center;
   font-size:0.75rem;
 }

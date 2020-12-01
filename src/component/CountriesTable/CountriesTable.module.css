@@ -32,6 +32,10 @@
     color: var(--primary-color);
     margin-left: 2px;
 }
+.table_container{
+    max-height: 60vh;
+    overflow-y: scroll;
+}
 .row{
     display:flex;
     padding: 20px;

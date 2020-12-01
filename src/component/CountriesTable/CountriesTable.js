@@ -66,6 +66,7 @@ const CountriesTable = ({ countries }) => {
                 {value==="gini" && <SortArrow direction={direction}/>}
             </button>
         </div>
+        <div className={styles.table_container}>
         {orderedCountries.map((country) => (
             <Link key={country.alpha3Code} href={`/country/${country.alpha3Code}`}><div  className={styles.row}>
             <div className={styles.flag}>
@@ -76,9 +77,8 @@ const CountriesTable = ({ countries }) => {
             <div className={styles.area}>{country.area || 0}</div>
             <div className={styles.gini}>{country.gini || 0} %</div>
         </div></Link>
-            
-
         ))}
+        </div>
     </div>
 }
 
