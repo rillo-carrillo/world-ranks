@@ -15,7 +15,7 @@ const Country = ({ country }) => {
     }
     useEffect(() => {
         getBorders()
-    }, []);
+    }, [borders]);
     return <Layout title={country.name}>
         <div className={styles.container}>
             <div className={styles.container_left}>
@@ -87,7 +87,18 @@ const Country = ({ country }) => {
     </Layout>
 }
 export default Country;
-export const getServerSideProps = async ({ params }) => {
+export const getStaticPaths = ()=>{
+    const res = await fetch('https://restcountries.eu/rest/v2/all');
+    const countries = await res.json()
+    const paths = countries.map(country=>({
+        params:{id:country.alpha3Code}
+    }))
+    return {
+        paths,
+        fallback:false,
+    }
+}
+export const getStaticProps = async ({ params }) => {
 
     const country = await getCountry(params.id)
     return {
